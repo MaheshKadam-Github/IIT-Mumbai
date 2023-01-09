@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 20px;
+            background-color: rgb(216, 221, 221);
+        }
+        #header{
+            background-color: rgb(238, 198, 150);
+            width: 100%;
+            height: 200px;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        #start{
+            background-color: rgb(73, 73, 211);
+            color: white;
+        }
+        #end{
+            background-color: rgb(127, 127, 192);
+            color: white;
+        }
+        #status{
+            background-color: rgb(219, 122, 127);
+            color: white;
+        }
+        #client{
+            background-color: rgb(103, 120, 196);
+            color: white;
+        }
+        #warning{
+            font-size: 13px;
+        }
+        #table{
+            border-radius: 20px;
+        }
+        #body{
+            margin-top: 20px;
+        }
+        
+        tbody:before {
+            line-height:1em;
+            content:"-";
+            color:white;
+            display:block;
+        }
+        .draft{
+            color: white;
+            border-radius: 15px;
+            width: 50px;
+            height: 5px;
+        }
+        .partial{
+            color: white;
+            border-radius: 15px;
+            width: 150px;
+            height: 5px;
+        }
+        .paid{
+            color: white;
+            border-radius: 15px;
+            width: 50px;
+            height: 5px;
+        }
+    </style>
+    <script src="./logic.js">
+        
+    </script>
+
+</head>
+<body onload="bodyload()">
+    <header id="header">
+        <div>
+            <h5 class="text-danger mb-4">All Invoices</h5>
+        </div>
+        <div class="row mb-4">
+            <div class="col-2">
+                <label>Begin Date<span class="bi bi-calender"></span></label>
+                <div><input type="date" id="start" class="form-control text-white"></div>
+            </div>
+
+            <div class="col-2">
+                <label>End Date</label>
+                <div><input type="date" id="end" class="form-control"></div>
+            </div>
+
+            <div class="col-2">
+                <label>Status</label>
+                <div>
+                    <select id="status" class="form-control" onchange="changelist()">
+                        <option>Any</option>
+                        <option>Draft</option>
+                        <option>Partial payment</option>
+                        <option>Paid</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-2">
+                <label>Client</label>
+                <div>
+                    <select id="client" class="form-control">
+                        <option>Any</option>
+                        <option>In-State</option>
+                        <option>Out-State</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <p id="warning">*This data has been shown according to given information.</p>
+    </header>
+    <section>
+        <div>
+            <table class="table table-light" id="tbl">
+                <thead id="heading mb-4">
+                    <tr>
+                        <th>Invoice</th>
+                        <th>Client name</th>
+                        <th>Date</th>
+                        <th>Due Date</th>
+                        <th>Total</th>
+                        <th>Balance</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody class="mt-4" id="body">
+                    
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    
+</body>
+</html>
