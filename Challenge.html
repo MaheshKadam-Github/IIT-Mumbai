@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border: 2px solid black;
+        }
+    </style>
+    <script>
+        /*function generaterows(){
+            var rows = document.getElementById("value").value;
+
+            for (let index = 0; index < rows; index++) {
+            console.log(index);
+            var input = document.createElement("input")
+            var tr = document.createElement("tr");
+            var tdX = document.createElement("td");
+            var tdY = document.createElement("td");
+
+            tdX.appendChild(input);
+            tdY.appendChild(input);
+
+            tr.appendChild(tdX);
+            tr.appendChild(tdY);
+            
+            document.getElementById("tbody").appendChild(tr);
+        }
+        }*/
+
+        function calculateY(){
+        var x = document.getElementById("x").value;
+
+        var x1 = document.getElementById("x1").value;
+        var x2 = document.getElementById("x2").value;
+        var x3 = document.getElementById("x3").value;
+        var x4 = document.getElementById("x4").value;
+        var x5 = document.getElementById("x5").value;
+
+        var y1 = document.getElementById("y1").value;
+        var y2 = document.getElementById("y2").value;
+        var y3 = document.getElementById("y3").value;
+        var y4 = document.getElementById("y4").value;
+        var y5 = document.getElementById("y5").value;
+
+        
+                    var i=2; 
+                    
+                var L1 = ((x-x[i])*(x-x[i+1])*(x-x[i+2])*(x-x[i+3])*(x-x[i+4]))/
+                    ((x[i-1]-x[i])*(x[i-1]-x[i+1])*(x[i-1]-x[i+2])*(x[i-1]-x[i+3])*(x[i-1]-x[i+4]))
+                
+                    var L2 = ((x-x[i-1])*(x-x[i+1])*(x-x[i+2])*(x-x[i+3])*(x-x[i+4]))/
+                        ((x[i]-x[i-1])*(x[i]-x[i+1])*(x[i]-x[i+2])*(x[i]-x[i+3])*(x[i]-x[i+4]))
+                           
+                        var L3 = ((x-x[i-1])*(x-x[i])*(x-x[i+2])*(x-x[i+3])*(x-x[i+5]))/
+                        ((x[i+1]-x[i-1])*(x[i+1]-x[i])*(x[i+1]-x[i+2])*(x[i+1]-x[i+3])*(x[i+1]-x[i+4]))
+
+                        var y = y[i-1]*L[i-1]+y[i]*L[i]+y[i+1]*L[i+1]+y[i+2]*L[i+2]+y[i+3]*L[i+3];
+
+                        document.getElementById("y").value = y;
+            };
+    
+        
+    </script>
+</head>
+<body>
+    <div>
+        <h5>Enter Number of Data <span><input type="number" id="value"></span></h5>
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>X</th>
+                    <th>Y</th>
+                </tr>
+            </thead>
+            <tbody  id="tbody">
+                <tr>
+                    <td><input type="number" id="x1"></td>
+                    <td><input type="number" id="y1"></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id="x2"></td>
+                    <td><input type="number" id="y2"></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id="x3"></td>
+                    <td><input type="number" id="y3"></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id="x4"></td>
+                    <td><input type="number" id="y4"></td>
+                </tr>
+                <tr>
+                    <td><input type="number" id="x5"></td>
+                    <td><input type="number" id="y5"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <h5>Enter X to calculate Y<span><input type="number" id="x" onblur="calculateY()"></span></h5>
+    </div>
+    <div>
+        <h5>Calculated value of Y is <span><input type="number" id="y"></span></h5>
+    </div>
+</body>
+</html>
