@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border: 2px solid black;
+        }
+    </style>
+    <script>
+        function generaterows(){
+            document.querySelector("tbody").innerHTML = "";
+            var rows = document.getElementById("value").value;
+
+            for (let i = 0; i < rows; i++) {
+            var tr=document.createElement("tr");
+            tr.innerHTML=`
+            <td><input type=number id=X${i}></td>
+            <td><input type=number id=Y${i}></td>
+            `
+            document.querySelector("tbody").appendChild(tr);
+        }
+        }
+        console.log(document.getElementById("X1"));
+
+        function calculateY(){
+        var X = document.getElementById("X").value;
+
+        var X1 = document.getElementById("X0").value;
+        
+        var X2 = document.getElementById("X1").value;
+        var X3 = document.getElementById("X2").value;
+        var X4 = document.getElementById("X3").value;
+        var X5 = document.getElementById("X4").value;
+
+        var Y1 = document.getElementById("Y0").value;
+        var Y2 = document.getElementById("Y1").value;
+        var Y3 = document.getElementById("Y2").value;
+        var Y4 = document.getElementById("Y3").value;
+        var Y5 = document.getElementById("Y4").value;
+
+
+        var L1 = ((X-X2)*(X-X3)*(X-X4))/
+                ((X1-X2)*(X1-X3)*(X1-X4))
+        console.log(L1);
+
+        var L2 = ((X-X1)*(X-X3)*(X-X4))/
+                ((X2-X1)*(X2-X3)*(X2-X4))
+        console.log(L2);
+
+        var L3 = ((X-X1)*(X-X2)*(X-X4))/
+                ((X3-X1)*(X3-X2)*(X3-X4))
+        console.log(L3);
+
+        var Y = (Y1*L1) + (Y2*L2) + (Y3*L3);
+        console.log(Y);
+
+        document.getElementById("Y").value = Y;
+        }
+        
+    </script>
+</head>
+<body>
+    <div>
+        <h5>Enter Number of Data <span><input type="number" id="value" onblur="generaterows()"></span></h5>
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>X</th>
+                    <th>Y</th>
+                </tr>
+            </thead>
+            <tbody  id="tbody">
+                
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <h5>Enter X to calculate Y<span><input type="number" id="X" onblur="calculateY()"></span></h5>
+    </div>
+    <div>
+        <h5>Calculated value of Y is <span><input type="number" id="Y"></span></h5>
+    </div>
+</body>
+</html>
